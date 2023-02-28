@@ -10,7 +10,7 @@ async function connect(){
     const getUri = mongod.getUri();
 
     mongoose.set('strictQuery', true);
-    const db = mongoose.connect(ENV.ATLAS_URI);
+    const db = mongoose.connect(process.env.ATLAS_URI);
     console.log("Database Connected");
     return db;
 }

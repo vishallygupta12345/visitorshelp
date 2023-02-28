@@ -10,8 +10,8 @@ let nodeConfig = {
     port: 587,
     secure: false, // true for 465, false for other ports
     auth: {
-        user: ENV.EMAIL, // jis account se mail jayega uska email
-        pass: ENV.PASSWORD, // and uska password
+        user: process.env.EMAIL, // jis account se mail jayega uska email
+        pass: process.env.PASSWORD, // and uska password
     }
 }
 
