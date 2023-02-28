@@ -1,7 +1,7 @@
 import UserModel from "../model/User.model.js";
 import otpGenerator from 'otp-generator';
 import jwt from "jsonwebtoken";
-//import ENV from '../config.js';
+import ENV from '../config.js';
 
 /** POST: http://localhost:8282/api/register 
  * @param : {
