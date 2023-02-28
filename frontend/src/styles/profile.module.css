@@ -1,0 +1,14 @@
+.glass{
+    @apply h-5/6 w-5/6;
+}
+
+.profile_img{
+    @apply w-40 cursor-pointer;
+    align-items: center;
+    margin-left: 300px;
+
+}
+
+.textbox{
+    @apply w-3/4;
+}

@@ -1,0 +1,17 @@
+.reader{
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.data{
+    font-weight: bold;
+    font-size :large;
+    width:auto;
+    display: -ms-inline-flexbox;
+}
+
+.img{
+    margin-left: 300000px;
+}
