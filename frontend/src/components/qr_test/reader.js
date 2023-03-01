@@ -20,7 +20,7 @@ const Reader = () => {
     let month = newDate.getMonth()+1;
     let year = newDate.getFullYear();
 
-    if(apiData?.enddate < `${year}-${month<10 ? `0${month}`:`${month}`}-${date}`){
+    if(apiData?.enddate < `${year}-${month<10 ? `0${month}`:`${month}`}-${date<10 ? `0${date}`:`${date}`}`){
         toast.error("The Guest's period is over !!!");
     }
 

@@ -96,9 +96,11 @@ function Home() {
 
         <Toaster position='top-center' reverseOrder={false}></Toaster>
 
-        <div className='flex justify-center items-center h-fit' style={{paddingTop: "20px",paddingBottom: "20px"}}>
+        {/* style={{paddingTop: "20px",paddingBottom: "20px"}} */}
+        <div className='flex justify-center items-center h-fit'>
             
-            <div className={styles.glass} style={{width: "50%", paddingTop: '3em'}}>
+        {/* style={{width: "50%", paddingTop: '3em'}} */}
+            <div className={styles.glass} >
 
                 <div className='title flex flex-col items-center'>
                     <h4 className='text-5xl font-bold'>Visitor's Help!</h4>
