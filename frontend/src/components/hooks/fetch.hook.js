@@ -2,8 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { getID } from '../../helper/helper'
 
-//axios.defaults.baseURL = process.env.REACT_APP_SERVER_DOMAIN;
-axios.defaults.baseURL = 'https://help-backend.onrender.com';
+axios.defaults.baseURL = process.env.REACT_APP_SERVER_DOMAIN;
+//axios.defaults.baseURL = 'https://help-backend.onrender.com';
 
 
 /** custom hook */
