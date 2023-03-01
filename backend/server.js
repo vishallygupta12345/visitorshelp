@@ -14,7 +14,7 @@ app.use(cors());
 app.use(morgan('tiny'));
 app.disable('x-powered-by');
 
-const port = 1111;
+const PORT = process.env.PORT || 1111;
 
 
 // HTTP GET request
@@ -30,8 +30,8 @@ app.use('/api', router)
 // start server only when we have valid connection
 connect().then( () => {
     try {
-        app.listen(port, () => {
-            console.log(`Server connected to http://localhost:${port}`);
+        app.listen(PORT, () => {
+            console.log(`Server connected to http://localhost:${PORT}`);
         })
     } catch (error) {
         console.log('Cannot connect to the server');

@@ -109,7 +109,7 @@ export async function login(req,res){
                         const token = jwt.sign({
                                         userId: user._id,
                                         ID : user.ID
-                                    }, process.env.JWT_SECRET , { expiresIn : "24h"});
+                                    }, ENV.JWT_SECRET , { expiresIn : "24h"});
 
                         return res.status(200).send({
                             msg: "Login Successful...!",
@@ -126,6 +126,76 @@ export async function login(req,res){
         return res.status(500).send({ error});
     }
 }
+
+
+// pehle register //phir get data se saara data lena hai // then we will match data id
+/** PUT: http://localhost:8282/api/updateuser 
+ * @param: {
+  "header" : "<token>"
+}
+body: {
+    firstName: '',
+    address : '',
+    profile : ''
+}
+*/
+// export async function updateUser(req,res){
+//     try {
+        
+//         // const id = req.query.id;
+//         const { userId } = req.user;
+
+//         if(userId){
+//             const body = req.body;
+
+//             // update the data
+//             UserModel.updateOne({ _id : userId }, body, function(err, data){
+//                 if(err) throw err;
+//                 console.log(data)
+//                 return (res.status(201).send({ msg : "Record Updated...!"}))
+//             })
+
+//         }else{
+//             return res.status(401).send({ error : "User Not Found...!"});
+//         }
+
+//     } catch (error) {
+//         return res.status(401).send({ error });
+//     }
+// }
+
+/** POST: http://localhost:8282/api/verifyCode 
+ * @param: {
+  "ID" : "example123",
+  "code" : "admin123"
+}
+*/
+// export async function verifyCode(req,res){
+   
+//     const { ID , code } = req.body;
+
+//     try {
+        
+//         UserModel.findOne({ ID })
+//             .then(user => {
+//                 if(code === user.code){
+//                         return res.status(200).send({
+//                             msg: "Verify Successful...!",
+//                             ID: user.ID
+//                         });                                    
+//                     }
+//                     else{
+//                         return res.status(400).send({ error: "Code does not Match"})
+//                     }
+//             })
+//             .catch( error => {
+//                 return res.status(404).send({ error : "ID not Found"});
+//             })
+
+//     } catch (error) {
+//         return res.status(500).send({ error});
+//     }
+// }
 
 /** GET: http://localhost:8282/api/user/example123 */
 export async function getUser(req,res){
