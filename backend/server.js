@@ -11,7 +11,7 @@ const app = express();
 // middlewares
 app.use(express.json({limit: '50mb'}));
 app.use(cors({
-    origin: ["http://localhost:1111", "https://help-backend.onrender.com"],
+    origin: ["http://localhost:1111", "https://help-backend.onrender.com", "https://help-frontend1.onrender.com"],
 }
 ));
 app.use(morgan('tiny'));
