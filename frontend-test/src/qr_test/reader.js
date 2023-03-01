@@ -6,7 +6,7 @@ import './reader.css';
 import styles from '../../styles/Home.module.css'
 import extend from '../../styles/profile.module.css'
 import avatar from '../../assets/avatar.jpg'
-import useFetch from '../../hooks/fetch.hook.js';
+import useFetch from '../../../../frontend/src/components/hooks/fetch.hook';
 
 const Reader = () => {
 

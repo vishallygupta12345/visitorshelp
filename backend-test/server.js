@@ -11,7 +11,7 @@ const app = express();
 // middlewares
 app.use(express.json({limit: '50mb'}));
 app.use(cors({
-    origin: ["http://localhost:1111", "https://help-backend.onrender.com", "https://help-frontend1.onrender.com", "http://localhost:3000", "http://localhost:3001"],
+    origin: ["http://localhost:1111", "http://localhost:2222","https://help-backend.onrender.com", "https://help-frontend1.onrender.com", "http://localhost:3000", "http://localhost:3001"],
 }
 ));
 app.use(morgan('tiny'));
@@ -19,7 +19,7 @@ app.disable('x-powered-by');
 
 
 
-const PORT = process.env.PORT || 1111;
+const PORT = process.env.PORT || 2222;
 
 
 // HTTP GET request
