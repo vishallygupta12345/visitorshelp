@@ -120,7 +120,7 @@ function startdateVerify(error={}, values){
     let year = newDate.getFullYear();
     if(!values.startdate){
         error.startdate = toast.error('Start Date required !!!');
-    }else if(values.startdate < `${year}-${month<10 ? `0${month}`:`${month}`}-${date}`){
+    }else if(values.startdate < `${year}-${month<10 ? `0${month}`:`${month}`}-${date<10 ? `0${date}`:`${date}`}`){
         error.startdate = toast.error('Start Date Invalid !!!');
     }
 
@@ -133,10 +133,11 @@ function enddateVerify(error={}, values){
     let date = newDate.getDate();
     let month = newDate.getMonth()+1;
     let year = newDate.getFullYear();
+    console.log(`${year}-${month<10 ? `0${month}`:`${month}`}-${date<10 ? `0${date}`:`${date}`}`)
     if(!values.enddate){
         error.enddate = toast.error('End Date required !!!');
-    }else if(values.enddate < `${year}-${month<10 ? `0${month}`:`${month}`}-${date}`){
-        error.enddate = toast.error('End Date Invalid');
+    }else if(values.enddate < `${year}-${month<10 ? `0${month}`:`${month}`}-${date<10 ? `0${date}`:`${date}`}`){
+        error.enddate = toast.error('End Date Invalid !!!');
     }
 
     return error;
