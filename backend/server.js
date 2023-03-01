@@ -10,9 +10,14 @@ const app = express();
 
 // middlewares
 app.use(express.json({limit: '50mb'}));
-app.use(cors());
+app.use(cors({
+    origin: ["http://localhost:1111", "https://help-backend.onrender.com"],
+}
+));
 app.use(morgan('tiny'));
 app.disable('x-powered-by');
+
+
 
 const PORT = process.env.PORT || 1111;
 
