@@ -136,7 +136,7 @@ function enddateVerify(error={}, values){
     if(!values.enddate){
         error.enddate = toast.error('End Date required !!!');
     }else if(values.enddate < `${year}-${month<10 ? `0${month}`:`${month}`}-${date}`){
-        error.enddate = toast.error('End Date Invalid !!!');
+        error.enddate = toast.error('End Date Invalid');
     }
 
     return error;
