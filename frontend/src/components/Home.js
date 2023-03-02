@@ -118,27 +118,30 @@ function Home() {
                     <div className='textbox flex flex-col items-center gap-6'>
 
                         <label htmlFor='invitee' className='py-4 text-xl w-3/3 text-center text-gray-500'>Enter Details of Invitee</label>
-                        <input {...formik.getFieldProps('inviteename')} className={styles.textbox} type= "text" placeholder="Enter Invitee's Name"/>
-                        <input {...formik.getFieldProps('inviteeId')} className={styles.textbox} type= "text" placeholder="Enter Invitee's Employee ID"/>
-                        <input {...formik.getFieldProps('email')} className={styles.textbox} type= "text" placeholder="Enter Invitee's Email"/>
+                        <input {...formik.getFieldProps('inviteename')} className={styles.textbox} type= "text" placeholder="Enter Invitee's Name *"/>
+                        <input {...formik.getFieldProps('inviteeId')} className={styles.textbox} type= "text" placeholder="Enter Invitee's Employee ID *"/>
+                        <input {...formik.getFieldProps('email')} className={styles.textbox} type= "text" placeholder="Enter Invitee's Email *"/>
                         
                         <label htmlFor='guest' className='py-4 text-xl w-3/3 text-center text-gray-500'>Enter Details of Guest</label>
-                        <input {...formik.getFieldProps('guestname')} className={styles.textbox} type= "text" placeholder="Enter Guest's Name"/>
-                        <input {...formik.getFieldProps('guestemail')} className={styles.textbox} type= "text" placeholder="Enter Guest's Email"/>
-                        <input {...formik.getFieldProps('guestnumber')} className={styles.textbox} type= "text" placeholder="Enter Guest's Contact Number"/>
-                        <input {...formik.getFieldProps('guestaddress')} className={styles.textbox} type= "text" placeholder="Enter Guest's Address"/>
-                        <input {...formik.getFieldProps('guestadhaar')} className={styles.textbox} type= "text" placeholder="Enter Guest's Adhaar"/>
-                        <input {...formik.getFieldProps('guestdesignation')} className={styles.textbox} type= "text" placeholder="Enter Guest's Designation"/>
+                        <input {...formik.getFieldProps('guestname')} className={styles.textbox} type= "text" placeholder="Enter Guest's Name *"/>
+                        <input {...formik.getFieldProps('guestemail')} className={styles.textbox} type= "text" placeholder="Enter Guest's Email *"/>
+                        <input {...formik.getFieldProps('guestnumber')} className={styles.textbox} type= "text" placeholder="Enter Guest's Contact Number *"/>
+                        <input {...formik.getFieldProps('guestaddress')} className={styles.textbox} type= "text" placeholder="Enter Guest's Address *"/>
+                        <input {...formik.getFieldProps('guestadhaar')} className={styles.textbox} type= "text" placeholder="Enter Guest's Adhaar *"/>
+                        <input {...formik.getFieldProps('guestdesignation')} className={styles.textbox} type= "text" placeholder="Enter Guest's Designation *"/>
+
+                        <label htmlFor='location' className='py-4 text-xl w-3/3 text-center text-gray-500'>Visiting Location</label>
+                        <input {...formik.getFieldProps('location')} className={styles.textbox} type= "text" placeholder="Enter Location *"/>
 
                         <label htmlFor='validity' className='py-4 text-xl w-3/3 text-center text-gray-500'>Guest can come within following time period.</label>
                         
                         <div className="name flex w-4/4 gap-10">
-                            <label htmlFor='startdate'className={styles.textbox} style={{width:'180px'}}>Start Date</label>
+                            <label htmlFor='startdate'className={styles.textbox} style={{width:'180px'}}>Start Date *</label>
                             <input {...formik.getFieldProps('startdate')} className={styles.textbox} type= "date"/>
                         </div>
 
                         <div className="name flex w-4/4 gap-10">
-                            <label htmlFor='enddate'className={styles.textbox} style={{width:'180px'}}>End Date</label>
+                            <label htmlFor='enddate'className={styles.textbox} style={{width:'180px'}}>End Date *</label>
                             <input {...formik.getFieldProps('enddate')} className={styles.textbox} type= "date" />
                         </div>
 
@@ -148,6 +151,9 @@ function Home() {
                             <input onChange={onUpload} type="file" id='profile' name='profile' className={styles.textbox} style={{width:'300px'}} />
                         
                         </div>
+
+                        <label htmlFor='additional' className='py-4 text-xl w-3/3 text-center text-gray-500'>Any Additional Information</label>
+                        <input {...formik.getFieldProps('additional')} className={styles.textbox} type= "text" placeholder="optional"/>
 
                         <button className={styles.btn} type="submit">Let's go!</button>
 

@@ -51,7 +51,8 @@ function Test() {
         <Toaster position='top-center' reverseOrder={false}></Toaster>
 
         <div className='flex justify-center items-center h-fit'>
-            <div className={styles.glass} style={{marginTop:'90px'}}>
+        {/* style={{marginTop:'90px'}} */}
+            <div className={styles.glass} >
 
                 <div className='title flex flex-col items-center'>
                     <h4 className='text-5xl font-bold'>Visitor's Help!</h4>

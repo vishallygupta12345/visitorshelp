@@ -30,7 +30,8 @@ const Reader = () => {
         <Toaster position='top-center' reverseOrder={false}></Toaster>
 
         <div className='flex justify-center items-center h-fit'>
-            <div className={`${styles.glass} ${extend.glass}`} style={{width: "80%", paddingTop: '3em'}}>
+        {/* style={{width: "80%", paddingTop: '3em'}} */}
+            <div className={`${styles.glass} ${extend.glass}`}>
 
                 <div className='title flex flex-col items-center'>
                     <h4 className='text-5xl font-bold'>Data Received</h4>
@@ -102,7 +103,7 @@ const Reader = () => {
                             <span  className={`${styles.textbox} ${extend.textbox}`} >{apiData?.guestdesignation}</span>
                         </div>
                         
-                        <button className={styles.btn}> <Link to={'/test'}> Verified ! </Link></button>
+                        <button className={styles.btn}> <Link to={'/'}> Verified ! </Link></button>
                 
                     </div>
 
