@@ -5,9 +5,9 @@ axios.defaults.baseURL = process.env.REACT_APP_SERVER_DOMAIN;
 //axios.defaults.baseURL = 'https://help-backend.onrender.com';
 
 // register user function 
-export async function registerUser(email, inviteename, inviteeId, guestname, guestemail, guestnumber, guestaddress, guestadhaar, guestdesignation, startdate, enddate, ID, profile){
+export async function registerUser(email, inviteename, inviteeId, guestname, guestemail, guestnumber, guestaddress, guestadhaar, guestdesignation, location, startdate, enddate, ID, profile, additional){
     try {
-        const { data , status } = await axios.post(`/api/register`, { email, inviteename, inviteeId, guestname, guestemail, guestnumber, guestaddress, guestadhaar, guestdesignation, startdate, enddate, ID, profile});
+        const { data , status } = await axios.post(`/api/register`, { email, inviteename, inviteeId, guestname, guestemail, guestnumber, guestaddress, guestadhaar, guestdesignation, location, startdate, enddate, ID, profile, additional});
 
         if(status === 201){
             return { data, status }

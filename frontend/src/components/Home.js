@@ -20,6 +20,8 @@ import { useIdStore } from '../store/storeInviteeId'
 import { useEStore } from '../store/storeEmail'
 import { useIStore } from '../store/storeInviteeName'
 import { useProfileStore } from '../store/storeProfile'
+import { useLocationStore } from '../store/storeLocation'
+import { useAdditionalStore } from '../store/storeAdditional'
 
 function Home() {
 
@@ -38,10 +40,14 @@ function Home() {
     const setGuestadhaar = useAdhaarStore(state => state.setGuestadhaar);
     const setGuestdesignation = useDesignationStore(state => state.setGuestdesignation);
 
+    const setLocation = useLocationStore(state => state.setLocation);
+
     const setStartdate = useStartStore(state => state.setStartdate);
     const setEnddate = useEndStore(state => state.setEnddate);
 
     const setProfile = useProfileStore(state => state.setProfile);
+
+    const setAdditional = useAdditionalStore(state => state.setAdditional);
 
     const formik = useFormik({
         initialValues: {
@@ -56,8 +62,12 @@ function Home() {
             guestadhaar: '',
             guestdesignation: '',
 
+            location: '',
+
             startdate: '',
-            enddate: ''
+            enddate: '',
+
+            additional: ''
         },
         validate: registerValidation,
         validateOnBlur: false,
@@ -75,10 +85,14 @@ function Home() {
             setGuestadhaar(values.guestadhaar);
             setGuestdesignation(values.guestdesignation);
 
+            setLocation(values.location);
+
             setStartdate(values.startdate);
             setEnddate(values.enddate);
 
             setProfile(file);
+
+            setAdditional(values.additional);
 
             console.log(values)
             navigate('/otp')

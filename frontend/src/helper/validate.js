@@ -31,7 +31,10 @@ function emailVerify(error ={}, values){
         error.email = toast.error("Invalid Invitee email !!!")
     }else if(!values.email.includes("@iitjammu.ac.in")){
         error.email = toast.error("Invalid Invitee email !!!")
+    }else if(!(values.email).substring(0,((values.email).length)-15).includes(".")){
+        error.email = toast.error("Invalid Invitee email !!!")
     }
+    //console.log((values.email).substring(0,((values.email).length)-15))
 
     return error;
 }
@@ -80,6 +83,8 @@ function guestnameVerify(error={}, values){
 function guestnumberVerify(error={}, values){
     if(!values.guestnumber){
         error.guestnumber = toast.error('Guest number required !!!');
+    }else if((values.guestnumber).length !==10){
+        error.guestnumber = toast.error('Guest number invalid !!!');
     }
 
     return error;
@@ -98,6 +103,10 @@ function guestaddressVerify(error={}, values){
 function guestadhaarVerify(error={}, values){
     if(!values.guestadhaar){
         error.guestadhaar = toast.error('Guest adhaar required !!!');
+    }else if((values.guestadhaar).length !==12){
+        error.guestadhaar = toast.error('Guest adhaar invalid !!!');
+    }else if((values.guestadhaar).includes('a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z')){
+        error.guestadhaar = toast.error('Guest adhaar invalid !!!');
     }
 
     return error;

@@ -98,8 +98,13 @@ const Reader = () => {
                         </div>
 
                         <div className="name flex w-3/4 gap-10">
-                            <span  className={`${styles.textbox} ${extend.textbox}`} >Guest's Designation</span>
-                            <span  className={`${styles.textbox} ${extend.textbox}`} >{apiData?.guestdesignation}</span>
+                            <span  className={`${styles.textbox} ${extend.textbox}`} >Visiting Location</span>
+                            <span  className={`${styles.textbox} ${extend.textbox}`} >{apiData?.location}</span>
+                        </div>
+
+                        <div className="name flex w-3/4 gap-10 additional">
+                            <span  className={`${styles.textbox} ${extend.textbox}`} >Additional Information</span>
+                            <span  className={`${styles.textbox} ${extend.textbox}`} >{apiData?.additional}</span>
                         </div>
                         
                         <button className={styles.btn}> <Link to={'/test'}> Verified ! </Link></button>

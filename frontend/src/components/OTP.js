@@ -19,6 +19,8 @@ import { useEStore } from '../store/storeEmail'
 import { useIStore } from '../store/storeInviteeName'
 import { usekeyStore } from '../store/storeKey';
 import { useProfileStore } from '../store/storeProfile';
+import { useLocationStore } from '../store/storeLocation';
+import { useAdditionalStore } from '../store/storeAdditional';
 
 function OTP() {
 
@@ -37,10 +39,14 @@ function OTP() {
     const guestadhaar = useAdhaarStore(state => state.auth.guestadhaar);
     const guestdesignation = useDesignationStore(state => state.auth.guestdesignation);
 
+    const location = useLocationStore(state => state.auth.location);
+
     const startdate = useStartStore(state => state.auth.startdate);
     const enddate = useEndStore(state => state.auth.enddate);
     
     const profile = useProfileStore(state => state.auth.profile);
+
+    const additional = useAdditionalStore(state => state.auth.additional);
 
     //generating a random ID
     const setID = usekeyStore(state => state.setID);
@@ -66,7 +72,7 @@ function OTP() {
                 toast.success('Verify Successful!');
         
                 try{
-                    let {status} = await registerUser(email, inviteename, inviteeId, guestname, guestemail, guestnumber, guestaddress, guestadhaar, guestdesignation, startdate, enddate, ID, profile)
+                    let {status} = await registerUser(email, inviteename, inviteeId, guestname, guestemail, guestnumber, guestaddress, guestadhaar, guestdesignation, location, startdate, enddate, ID, profile, additional)
                     
                     if (status === 201) {
                         toast.success('Submitted');

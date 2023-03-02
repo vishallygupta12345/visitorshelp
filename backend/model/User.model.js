@@ -48,6 +48,11 @@ export const UserSchema = new mongoose.Schema({
         required : [true, "Please provide a Guest designation"],
         unique: false,
     },
+    location : {
+        type: String,
+        required : [true, "Please provide a Visiting Location"],
+        unique: false,
+    },
     startdate : {
         type: String,
         required : [true, "Please provide start date"],
@@ -63,7 +68,8 @@ export const UserSchema = new mongoose.Schema({
         required : [true, "Please provide ID"],
         unique: true,
     },
-    profile: { type: String}
+    profile: { type: String},
+    additional: { type: String}
 });
 
 export default mongoose.model.Users || mongoose.model('User', UserSchema);

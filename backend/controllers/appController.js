@@ -24,7 +24,7 @@ import ENV from '../config.js';
 */
 export async function register(req,res){
     try {
-        const {email, inviteename, inviteeId, guestname, guestemail, guestnumber, guestaddress, guestadhaar, guestdesignation, startdate, enddate, ID, profile} = req.body;        
+        const {email, inviteename, inviteeId, guestname, guestemail, guestnumber, guestaddress, guestadhaar, guestdesignation, location, startdate, enddate, ID, profile, additional} = req.body;        
 
                 //saving data in db
                 const user = new UserModel({
@@ -37,10 +37,12 @@ export async function register(req,res){
                     guestaddress, 
                     guestadhaar, 
                     guestdesignation,
+                    location,
                     startdate,
                     enddate,
                     ID,
-                    profile
+                    profile,
+                    additional
                 });
 
                 // return save result as a response
