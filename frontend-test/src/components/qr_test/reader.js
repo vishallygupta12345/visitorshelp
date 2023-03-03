@@ -141,7 +141,7 @@ const Reader = () => {
                         
                         <button className={styles.btn} onClick={onClick}> Verified ! </button>
                         
-                        <button className={styles.btn} onClick={onClick}><Link to={'/'}> Back to Home Page </Link></button>
+                        <button className={styles.btn}><Link to={'/'}> Back to Home Page </Link></button>
 
                     </div>
 
