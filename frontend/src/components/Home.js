@@ -150,12 +150,12 @@ function Home() {
                         <label htmlFor='validity' className='py-4 text-xl w-3/3 text-center text-gray-500'>Guest can come within following time period.</label>
                         
                         <div className="name flex w-4/4 gap-10">
-                            <label htmlFor='startdate'className={styles.textbox} style={{width:'180px'}}>Start Date *</label>
+                            <label htmlFor='startdate'className={styles.textbox} style={{width:'180px'}}>Start Date*</label>
                             <input {...formik.getFieldProps('startdate')} className={styles.textbox} type= "date"/>
                         </div>
 
                         <div className="name flex w-4/4 gap-10">
-                            <label htmlFor='enddate'className={styles.textbox} style={{width:'180px'}}>End Date *</label>
+                            <label htmlFor='enddate'className={styles.textbox} style={{width:'180px'}}>End Date*</label>
                             <input {...formik.getFieldProps('enddate')} className={styles.textbox} type= "date" />
                         </div>
 
