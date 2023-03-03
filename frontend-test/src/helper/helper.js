@@ -5,9 +5,9 @@ axios.defaults.baseURL = process.env.REACT_APP_SERVER_DOMAIN;
 //axios.defaults.baseURL = 'https://help-backend.onrender.com';
 
 // register user function 
-export async function registerUser(email, inviteename, inviteeId, guestname, guestemail, guestnumber, guestaddress, guestadhaar, guestdesignation, startdate, enddate, ID, profile){
+export async function gateRegister(inviteename, guestname, guestnumber, ID, time){
     try {
-        const { data , status } = await axios.post(`/api/register`, { email, inviteename, inviteeId, guestname, guestemail, guestnumber, guestaddress, guestadhaar, guestdesignation, startdate, enddate, ID, profile});
+        const { data , status } = await axios.post(`/api/register`, { inviteename, guestname, guestnumber, ID, time});
 
         if(status === 201){
             return { data, status }
@@ -15,39 +15,6 @@ export async function registerUser(email, inviteename, inviteeId, guestname, gue
     
     } catch (error) {
         return Promise.reject({ error })
-    }
-}
-
-
-// generate OTP 
-export async function generateOTP(email, guestname, inviteename){
-    
-    try {
-        const {data : { code }, status } = await axios.get('/api/generateOTP');
-
-        // send mail with the OTP
-        if(status === 201){
-            let text = `Generated OTP is ${code}. Give this OTP to your invited person so that he/she can enter the campus.`;
-            await axios.post('/api/registerMail', {inviteename: inviteename, guestname: guestname, Email: email, text, subject: "OTP Recieved"})
-        }
-
-        return Promise.resolve(code);
-    } catch (error) {
-        return Promise.reject({ error });
-    }
-}
-
-// verify OTP 
-export async function verifyOTP({ code }){
-    try {
-       const { data, status } = await axios.get('/api/verifyOTP', { params : { code }})
-
-       if(status === 201){
-        return { data, status }
-       }
-
-    } catch (error) {
-        return Promise.reject(error);
     }
 }
 
@@ -65,18 +32,6 @@ export async function verifyKey( ID ){
     try {
         if(ID){
             const { data } = await axios.post('/api/login', { ID })
-            return Promise.resolve({ data });
-        }
-    } catch (error) {
-        return Promise.reject({ error : "ID doesn't exist...!"})
-    }
-}
-
-/** verifying code function */
-export async function verifyCode( ID, code ){
-    try {
-        if(ID){
-            const { data } = await axios.post('/api/verifyCode', { ID, code })
             return Promise.resolve({ data });
         }
     } catch (error) {

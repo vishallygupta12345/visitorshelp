@@ -7,6 +7,7 @@ import styles from '../../styles/Home.module.css'
 import extend from '../../styles/profile.module.css'
 import avatar from '../../assets/avatar.jpg'
 import useFetch from '../../hooks/fetch.hook.js';
+import { gateRegister } from '../../helper/helper';
 
 const Reader = () => {
 
@@ -22,6 +23,31 @@ const Reader = () => {
 
     if(apiData?.enddate < `${year}-${month<10 ? `0${month}`:`${month}`}-${date<10 ? `0${date}`:`${date}`}`){
         toast.error("The Guest's period is over !!!");
+    }
+
+    const guestname = apiData?.guestname;
+    const inviteename = apiData?.inviteename;
+    const guestnumber = apiData?.guestnumber;
+    const ID = apiData?.ID;
+    const time = new Date().toLocaleString();
+
+    async function onClick(e){
+        e.preventDefault();
+        try{
+            if(apiData?.enddate < `${year}-${month<10 ? `0${month}`:`${month}`}-${date<10 ? `0${date}`:`${date}`}`){
+                toast.error("Cannot save! Guest's period is over.");
+            }else{
+                let registerPromise = gateRegister(inviteename, guestname, guestnumber, ID, time)
+                toast.promise(registerPromise, {
+                    loading: 'Registering...',
+                    success: <b>Registered Successfully !!!</b>,
+                    error: <b>Can't Register!</b>
+                });
+                registerPromise.then()
+            }
+        }catch (error){
+            return toast.error("Can't save right now!");
+         }
     }
 
   return (
@@ -113,8 +139,10 @@ const Reader = () => {
                             <span  className={`${styles.textbox} ${extend.textbox}`} >{apiData?.additional}</span>
                         </div>
                         
-                        <button className={styles.btn}> <Link to={'/'}> Verified ! </Link></button>
-                
+                        <button className={styles.btn} onClick={onClick}> Verified ! </button>
+                        
+                        <button className={styles.btn} onClick={onClick}><Link to={'/'}> Back to Home Page </Link></button>
+
                     </div>
 
                 </form>

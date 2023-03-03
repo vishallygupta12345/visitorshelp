@@ -1,4 +1,5 @@
 // create mongoose schema
+import ENV from '../config.js';
 
 import mongoose from "mongoose";
 
@@ -48,6 +49,11 @@ export const UserSchema = new mongoose.Schema({
         required : [true, "Please provide a Guest designation"],
         unique: false,
     },
+    location : {
+        type: String,
+        required : [true, "Please provide a Visiting Location"],
+        unique: false,
+    },
     startdate : {
         type: String,
         required : [true, "Please provide start date"],
@@ -63,7 +69,11 @@ export const UserSchema = new mongoose.Schema({
         required : [true, "Please provide ID"],
         unique: true,
     },
-    profile: { type: String}
+    profile: { type: String},
+    additional: { type: String}
 });
 
-export default mongoose.model.Users || mongoose.model('User', UserSchema);
+const connect = mongoose.createConnection(ENV.ATLAS_URI);
+export const User = connect.model("User", UserSchema);
+export default User;
+//export default mongoose.model.Users || mongoose.model('User', UserSchema);

@@ -36,13 +36,13 @@ function QR() {
             //setTestKey(values.ID);
             console.log(values);
 
-            let loginPromise = sendMail(values.emails, guestname, inviteename, startdate, enddate)
-            toast.promise(loginPromise, {
+            let mailPromise = sendMail(values.emails, guestname, inviteename, startdate, enddate)
+            toast.promise(mailPromise, {
                 loading: 'Sending...',
                 success: <b>Sent Successfully !!!</b>,
                 error: <b>Can't send!</b>
             });
-            loginPromise.then()
+            mailPromise.then()
 
         }
     })

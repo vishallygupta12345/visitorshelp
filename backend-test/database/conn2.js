@@ -5,16 +5,14 @@ import { MongoMemoryServer } from 'mongodb-memory-server';
 import ENV from '../config.js';
 
 
-async function connect(){
+async function connect2(){
     const mongod = await MongoMemoryServer.create();
     const getUri = mongod.getUri();
-    //const uri = process.env.ATLAS_URI
-
 
     mongoose.set('strictQuery', true);
-    const db = mongoose.createConnection(process.env.ATLAS_URI || ENV.ATLAS_URI);
-    console.log("Database Connected");
-    return db;
+    const db2 = mongoose.createConnection(ENV.ATLAS_URI2);
+    console.log("Database2 Connected");
+    return db2;
 }
 
-export default connect;
+export default connect2;

@@ -1,4 +1,5 @@
 import UserModel from "../model/User.model.js";
+import UserModel2 from "../model/User.model2.js";
 import jwt from "jsonwebtoken";
 import ENV from '../config.js';
 
@@ -19,7 +20,7 @@ export async function verifyUser(req, res, next){
     }
 }
 
-/** POST: http://localhost:8282/api/login 
+/** POST: http://localhost:2222/api/login 
  * @param: {
   "ID" : "sdfghjk"
 }
@@ -125,7 +126,7 @@ body: {
 //     }
 // }
 
-/** GET: http://localhost:8282/api/user/example123 */
+/** GET: http://localhost:2222/api/user/example123 */
 export async function getUser(req,res){
     
     const { ID } = req.params;
@@ -149,5 +150,39 @@ export async function getUser(req,res){
         return res.status(404).send({ error : "Cannot Find User Data"});
     }
 
+}
+
+// saving entry time in another database
+// {
+//     "inviteename": "jrgiu", 
+//     "guestname": "jdgwejhf", 
+//     "guestnumber": "iuiegf", 
+//     "ID": "urgh" ,
+//     "time": "ourehgj" 
+//   }
+export async function register(req,res){
+    try {
+        const {inviteename, guestname, guestnumber, ID, time} = req.body;        
+
+                //saving data in db
+                const user = new UserModel2({
+                    inviteename, 
+                    guestname, 
+                    guestnumber, 
+                    ID,
+                    time
+                });
+
+                // return save result as a response
+                user.save()
+                    .then(result => {
+                        res.status(201).send({ msg: "User Register Successfully"});
+                        console.log(result)
+                    })
+                    .catch(error => res.status(500).send({error}))
+
+    } catch (error) {
+        return res.status(500).send(error);
+    }
 }
 

@@ -6,9 +6,9 @@ const router= Router();
 
 
 // POST Methods
+router.route('/register').post(controller.register); //to register
 router.route('/authenticate').post(controller.verifyUser, (req,res) => res.end()); //authenticate user
 router.route('/login').post(controller.verifyUser, controller.login); //log in app
-// router.route('/verifyCode').post(controller.verifyUser, controller.verifyCode); //log in app
 
 // GET Methods
 router.route('/user/:ID').get(controller.getUser); // user with username

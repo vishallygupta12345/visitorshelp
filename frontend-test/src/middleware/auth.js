@@ -6,7 +6,7 @@ import {useAuthStore} from '../store/storeTestKey.js'
 export const Authorize = ({ children }) => {
     const testKey = useAuthStore.getState().auth.testKey;
     if(!testKey){
-        return <Navigate to={'/test'} replace={true}></Navigate>
+        return <Navigate to={'/'} replace={true}></Navigate>
     }
     return children;
 }
