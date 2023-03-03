@@ -35,12 +35,12 @@ let MailGenerator = new Mailgen({
 }
 */
 export const registerMail = async (req, res) => {
-    const { inviteename, guestname, Email, text, subject } = req.body;
+    const { guestname, Email, text, subject } = req.body;
 
     // body of the email
     var email = {
         body : {
-            name: inviteename,
+            name: Email,
             intro : text || `'Hello! We\'re very excited to tell you that ${guestname} is out there to meet you.'`,
             outro: 'Need help, or have questions? Just reply to this email, we\'d love to help.'
         }

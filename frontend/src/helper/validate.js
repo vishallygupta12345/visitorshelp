@@ -21,6 +21,24 @@ export async function registerValidation(values){
     return errors;
 }
 
+// validating send mails
+export async function sendValidation(values){
+    const errors = sendemailVerify({}, values);
+
+    return errors;
+}
+function sendemailVerify(error={}, values){
+    if(!values.emails){
+        error.emails = toast.error("Email Required !!!");
+    }else if(values.emails.includes(" ")){
+        error.emails = toast.error("Wrong Email !!!")
+    }else if(!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.emails)){
+        error.emails = toast.error("Invalid email !!!")
+    }
+
+    return error;
+}
+
 // validate email 
 function emailVerify(error ={}, values){
     if(!values.email){

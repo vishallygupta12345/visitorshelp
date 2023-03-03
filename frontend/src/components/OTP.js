@@ -92,7 +92,7 @@ function OTP() {
     // handler of sending OTP
     function sendOTP(){
 
-        let sentPromise = generateOTP(email, guestname, inviteename);
+        let sentPromise = generateOTP(email, guestname);
 
         toast.promise(sentPromise ,
         {

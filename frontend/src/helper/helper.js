@@ -20,15 +20,15 @@ export async function registerUser(email, inviteename, inviteeId, guestname, gue
 
 
 // generate OTP 
-export async function generateOTP(email, guestname, inviteename){
+export async function generateOTP(email, guestname){
     
     try {
         const {data : { code }, status } = await axios.get('/api/generateOTP');
 
         // send mail with the OTP
         if(status === 201){
-            let text = `Generated OTP is ${code}. Give this OTP to your invited person so that he/she can enter the campus.`;
-            await axios.post('/api/registerMail', {inviteename: inviteename, guestname: guestname, Email: email, text, subject: "OTP Recieved"})
+            let text = `Generated OTP is ${code}. Enter this OTP to get the unique key for your guest.`;
+            await axios.post('/api/registerMail', { guestname: guestname, Email: email, text, subject: "OTP Recieved"})
         }
 
         return Promise.resolve(code);
@@ -104,3 +104,21 @@ export async function getID(){
     let decode = jwt_decode(token)
     return decode;
 }
+
+// send mail 
+export async function sendMail(email, guestname, inviteename, startdate, enddate){
+
+    try {
+        let text = `${guestname} is been invited by ${inviteename} from ${startdate} to ${enddate} .Allow this guest to enter the campus.`;
+
+        const { data , status } = await axios.post('/api/registerMail', {inviteename: inviteename, guestname: guestname, Email: email, text, subject: "Guest Information"});
+
+        if(status === 201){
+            return { data, status }
+           }
+    
+    } catch (error) {
+        return Promise.reject({ error })
+    }
+}
+
