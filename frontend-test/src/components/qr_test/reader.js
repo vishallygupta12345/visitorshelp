@@ -139,7 +139,7 @@ const Reader = () => {
                             <span  className={`${styles.textbox} ${extend.textbox}`} >{apiData?.additional}</span>
                         </div>
                         
-                        <button className={styles.btn} onClick={onClick}> Verified ! </button>
+                        <button className={styles.btn} onClick={onClick}> Verify and Register ! </button>
                         
                         <button className={styles.btn}><Link to={'/'}> Back to Home Page </Link></button>
 
